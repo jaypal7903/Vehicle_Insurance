@@ -21,3 +21,8 @@
 #     raise MyException(e,sys) from e 
 
 # --------------------------------------------------------------------------------
+
+from src.pipline.training_pipeline import TrainingPipeline
+
+pipeline = TrainingPipeline()
+pipeline.run_pipeline()
