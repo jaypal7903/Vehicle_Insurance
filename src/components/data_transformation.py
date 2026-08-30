@@ -84,18 +84,25 @@ class DataTransformation:
         df = pd.get_dummies(df,drop_first=True)
         return df
 
-    def _rename_columns(self,df) :
+    def _rename_columns(self, df):
         """
         Rename specific columns and ensure integer types for dummy columns.
         """
-        logging.info("renaming specific columns and casting to int")
+        logging.info("Renaming specific columns and casting to int")
+    
         df = df.rename(columns={
-            "Vehicle_Age_< 1 Year" : "Vehicle_Age_lt_1_Year",
-            "Vehicle_Age_> 2 Year" : "Vehicle_Age_gt_2_Years"
+            "Vehicle_Age_< 1 Year": "Vehicle_Age_lt_1_Year",
+            "Vehicle_Age_> 2 Years": "Vehicle_Age_gt_2_Years"
         })
-        for col in ["Vehicle_Age_lt_1_Year", "Vehicle_Age_gt_2_Year","Vehicle_Damage_Yes"]:
+    
+        for col in [
+            "Vehicle_Age_lt_1_Year",
+            "Vehicle_Age_gt_2_Years",
+            "Vehicle_Damage_Yes"
+        ]:
             if col in df.columns:
-                df[col] = df[col].astype('int')
+                df[col] = df[col].astype(int)
+    
         return df
 
     def _drop_id_column(self,df):
