@@ -559,7 +559,7 @@ AWS services used in the project:
 
 #### Amazon EC2
 
-Used to host the production application.
+Used to host the production application using an **AWS Free Tier-compatible setup**.
 
 #### Amazon ECR
 
@@ -720,14 +720,15 @@ The workflow configuration is located at:
 
 # 🖥️ AWS EC2 Deployment
 
-The application is deployed on an Ubuntu EC2 instance.
+The application is deployed on an Ubuntu EC2 instance using an **AWS Free Tier-compatible configuration**.
 
 ### EC2 Configuration
 
 ```text
 Operating System : Ubuntu Server 24.04
 Instance Type    : T2 Medium
-Storage          : 30 GB
+Storage          : 8 GB
+Service Tier     : AWS Free Tier
 Application Port : 5000
 ```
 
@@ -795,7 +796,7 @@ ECR_REPO
 
 Secrets are referenced by the CI/CD workflow instead of storing credentials inside the repository.
 
-> **Never commit AWS access keys, secret keys, MongoDB passwords, ****`.env`**** files, or private credentials to GitHub.**
+> **Never commit AWS access keys, secret keys, MongoDB passwords, `.env` files, or private credentials to GitHub.**
 
 ---
 
